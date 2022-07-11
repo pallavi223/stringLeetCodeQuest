@@ -1,0 +1,15 @@
+Reverse String a m specific position
+arr = [1,2,3,4,5,6]
+M = 3
+
+void reverseArray(vector<int> &arr,int m){
+int start = m+1;
+int end = arr.size()-1;
+while(start<=end){
+swap(arr[start],arr[end]);
+start++;
+end--;
+
+}
+
+}
