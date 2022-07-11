@@ -1,0 +1,38 @@
+345. Reverse Vowels of a String
+Input: s = "hello"
+Output: "holle"
+
+class Solution {
+public:
+    
+    bool vowelPresent(char c){
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E'             || c == 'I' || c == 'O' || c == 'U')
+            return true;
+        return false;
+            
+    }
+        
+    string reverseVowels(string s) {
+        int start = 0;
+        int n = s.length();
+        int end = n-1;
+        while(start<end){
+            if(vowelPresent(s[start]) && vowelPresent(s[end])){ // // check if vowel present in start location or end both
+                swap(s[start],s[end]);
+                start++;
+                end--;
+            }
+            else if(vowelPresent(s[start]))   // check if vowel present in start location
+                end--;
+            
+            else if(vowelPresent(s[end]))    //check if vowel present in start location
+                start++;
+           else{
+            start++;
+            end--;
+        }
+        }
+        return s;
+        
+    }
+};
