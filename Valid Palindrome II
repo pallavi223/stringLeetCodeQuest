@@ -1,0 +1,39 @@
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
+
+
+TC - O(N)
+
+class Solution {
+    private:
+    bool isPalindrome(string s,int si,int ei){
+       
+        while(ei>si){
+            if(s[si++] != s[ei--]){
+                return 0;
+            }
+        }
+        return 1;
+    }
+    
+public:
+    bool validPalindrome(string s) {
+        int si=0;
+        int ei=s.length()-1;
+        while(ei>si){
+            if(s[si] == s[ei]){
+                si++;
+                ei--;
+            }
+            else{
+                //if difference check after deleting one ele are we getting palindromic string or not  --> if anyone give true it will return true
+                
+                return isPalindrome(s,si+1,ei) || isPalindrome(s,si,ei-1);
+             
+                
+            }
+        }
+        return true;
+    }
+};
