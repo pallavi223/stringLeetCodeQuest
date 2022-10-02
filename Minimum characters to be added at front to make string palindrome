@@ -1,0 +1,32 @@
+Input:
+S = "aacecaaa"
+Output: 1
+Explanation: Add 'a' at front of above string
+to make it palindrome : "aaacecaaa"
+
+
+public:
+    int minChar(string str){
+
+       
+        int n = str.length();
+        int start=0;
+        int end = n-1;
+        int pos = n-1;
+        int count=0;
+        while(start <= end){
+        if(str[start] == str[end]){
+            start++;
+            end--;
+        }
+        else{
+           
+            start=0;
+           end = --pos;
+           count++;
+       
+        }
+        }
+        return count;
+    }
+};
