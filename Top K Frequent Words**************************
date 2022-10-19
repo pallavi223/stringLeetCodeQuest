@@ -1,0 +1,29 @@
+
+Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+Output: ["i","love"]
+Explanation: "i" and "love" are the two most frequent words.
+Note that "i" comes before "love" due to a lower alphabetical order.
+
+
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        
+        unordered_map<string, int> mp;
+        vector<pair<int, string>> v;
+
+        //find frequency(count) of all the  words and store to map
+        for(auto word: words){
+            mp[word]++;
+        }
+        //iterate map and put element in vector ke pair - kv(variable/iterater)
+        for(auto kv: mp){
+           v.push_back({kv.second, kv.first});  //words - count
+        }
+       //call sort function and pass third parameter as a comparator
+       sort(v.begin(), v.end(),comp);
+        vector<string> ans;
+        for(int i=0;i<k;i++){
+            ans.push_back(v[i].second);
+        }
+        return ans;
+    }
+};
